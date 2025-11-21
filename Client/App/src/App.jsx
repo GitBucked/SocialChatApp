@@ -13,7 +13,7 @@ function App() {
 	}, []);
 
   return (
-  <>
+  <div className="flex flex-col items-center min-h-screen">
     {postText.map((value, key) => {
       return (
         <div
@@ -67,7 +67,7 @@ function App() {
         </div>
       );
     })}
-  </>
+  </div>
 	);
 }
 
