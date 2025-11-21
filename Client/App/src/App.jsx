@@ -1,35 +1,74 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+	const [postText, setPostText] = useState([]);
+
+	useEffect(() => {
+		axios.get("http://localhost:5174/posts" ).then((response) => {
+			setPostText(response.data);
+		});
+	}, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  <>
+    {postText.map((value, key) => {
+      return (
+        <div
+          key={key}
+          className="
+            w-[400px] h-[300px] 
+            rounded-[10px] 
+            flex flex-col 
+            mt-[50px] 
+            border border-gray-300 
+            font-sans
+            shadow-[0_2px_8px_rgba(99,99,99,0.2)]
+            hover:shadow-[0_7px_29px_rgba(100,100,111,0.2)]
+            cursor-pointer
+          "
+        >
+          <div
+            className="
+              flex-[20%] 
+              border-b border-gray-300 
+              bg-blue-500 
+              grid place-content-center 
+              text-white
+            "
+          >
+            {value.title}
+          </div>
+
+          <div
+            className="
+              flex-[60%] 
+              grid place-content-center
+            "
+          >
+            {value.content}
+          </div>
+
+          <div
+            className="
+              flex-[20%] 
+              border-t border-gray-300 
+              flex items-center 
+              pl-[15px] 
+              bg-blue-500 
+              text-white 
+              rounded-b-[10px]
+            "
+          >
+            {value.username}
+          </div>
+        </div>
+      );
+    })}
+  </>
+	);
 }
 
 export default App
