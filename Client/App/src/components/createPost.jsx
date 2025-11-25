@@ -1,5 +1,7 @@
 import {Formik, Form, Field, ErrorMessage} from 'formik'
-import CreateBtn from '../components/createBtn'
+import axios from 'axios'
+import { API_BASE_URL, ENDPOINTS } from '../constants'
+import CreateBtn from './Navigator'
 import postSchema from '../Validation/postSchema'
 
 
@@ -12,7 +14,10 @@ function CreatePost() {
 	}
 
 	const onSubmit = (data) => {
-		console.log(data);
+		axios.post(`${API_BASE_URL}${ENDPOINTS.POSTS}`, data).then((response) => {
+			console.log("Post created successfully");
+			setPostText(response.data);
+		});
 	}
 
 	return (
