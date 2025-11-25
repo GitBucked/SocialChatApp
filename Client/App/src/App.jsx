@@ -12,6 +12,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home/>} />
 				<Route path="/create-post" element={<CreatePost/>} />
+				<Route path="/post/:id" element={<CreatePost/>} />
 			</Routes>
 		</Router>
 	</div>
