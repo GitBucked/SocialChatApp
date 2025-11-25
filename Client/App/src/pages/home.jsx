@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { API_BASE_URL, ENDPOINTS } from '../constants'
 import Post from '../components/Post'
-import CreateBtn from '../components/createBtn'
+import CreateBtn from '../components/Navigator'
 
 function Home() {
 	const [postText, setPostText] = useState([]);
