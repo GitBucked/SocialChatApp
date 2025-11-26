@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { API_BASE_URL, ENDPOINTS } from '../constants'
-import Post from '../components/Post'
+import Post from '../components/post'
 import CreateBtn from '../components/Navigator'
 
 function Home() {
