@@ -7,6 +7,9 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -14,21 +17,21 @@ jobs:
           node-version: 20
 
       - name: Install frontend dependencies
-        working-directory: Client/App
         run: npm install
+        working-directory: Client/App
         env:
           HUSKY: 0
 
       - name: Run frontend ESLint
-        working-directory: Client/App
         run: npm run lint
+        working-directory: Client/App
 
       - name: Install backend dependencies
-        working-directory: Server
         run: npm install
+        working-directory: Server
         env:
           HUSKY: 0
 
       - name: Run backend ESLint
-        working-directory: Server
         run: npm run lint
+        working-directory: Server
