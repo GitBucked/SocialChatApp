@@ -41,11 +41,14 @@ function CreatePost() {
               className="h-10 mb-4 border-2 border-gray-500 rounded-md pl-2.5 text-xl"
             />
 
-	const onSubmit = (data) => {
-		axios.post(`${API_BASE_URL}${ENDPOINTS.POSTS}`, data).then(() => {
-			console.log("Post created successfully");
-		});
-	}
+            <label className="mb-2">Username: </label>
+            <ErrorMessage name="username" component="span" className="text-red-500 mb-2" />
+            <Field
+              id="inputCreatePost"
+              name="username"
+              placeholder="(Ex. John123...)"
+              className="h-10 mb-4 border-2 border-gray-500 rounded-md pl-2.5 text-xl"
+            />
 
             <button
               type="submit"
