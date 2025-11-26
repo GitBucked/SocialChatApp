@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
 import { API_BASE_URL, ENDPOINTS } from '../constants';
 import CreateBtn from './Navigator';
-import postSchema from '../Validation/postSchema';
+import postSchema from '../validation/postSchema';
 
 function CreatePost() {
   const initialValues = {
