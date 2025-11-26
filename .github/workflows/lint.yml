@@ -13,22 +13,18 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install frontend dependencies
-        working-directory: Client/App
-        run: npm install
+      - name: Install and lint frontend
+        run: |
+          cd Client/App
+          npm install
+          npm run lint
         env:
           HUSKY: 0
 
-      - name: Run frontend ESLint
-        working-directory: Client/App
-        run: npm run lint
-
-      - name: Install backend dependencies
-        working-directory: Server
-        run: npm install
+      - name: Install and lint backend
+        run: |
+          cd Server
+          npm install
+          npm run lint
         env:
           HUSKY: 0
-
-      - name: Run backend ESLint
-        working-directory: Server
-        run: npm run lint

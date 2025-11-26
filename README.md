@@ -51,4 +51,4 @@ This template provides:
 
 It is designed to help you kickstart new applications quickly while maintaining code quality and structure.
 
-// trigger ci
+// trigger ci pt2
