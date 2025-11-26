@@ -13,7 +13,10 @@ jobs:
         with:
           node-version: 18
 
-      - working-directory: server
-        run: |
-          npm install
-          node -c index.js
+      - name: Install backend dependencies
+        working-directory: Server
+        run: npm install
+
+      - name: Syntax check
+        working-directory: Server
+        run: node -c index.js

@@ -14,17 +14,17 @@ jobs:
           node-version: 18
 
       - name: Install frontend dependencies
-        working-directory: client
+        working-directory: Client/App
         run: npm install
 
       - name: Run frontend ESLint
-        working-directory: client
+        working-directory: Client/App
         run: npm run lint
 
       - name: Install backend dependencies
-        working-directory: server
+        working-directory: Server
         run: npm install
 
       - name: Run backend ESLint
-        working-directory: server
+        working-directory: Server
         run: npm run lint
