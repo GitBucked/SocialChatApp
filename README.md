@@ -50,3 +50,5 @@ This template provides:
 - Reliable stack for both prototyping and full apps  
 
 It is designed to help you kickstart new applications quickly while maintaining code quality and structure.
+
+// trigger ci
