@@ -13,7 +13,10 @@ jobs:
         with:
           node-version: 18
 
-      - working-directory: client
-        run: |
-          npm install
-          npm run build
+      - name: Install frontend dependencies
+        working-directory: client/app
+        run: npm install
+
+      - name: Build frontend
+        working-directory: client/app
+        run: npm run build

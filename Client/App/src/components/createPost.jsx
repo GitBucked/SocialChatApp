@@ -15,8 +15,7 @@ function CreatePost() {
 
 	const onSubmit = (data) => {
 		axios.post(`${API_BASE_URL}${ENDPOINTS.POSTS}`, data).then((response) => {
-			console.log("Post created successfully");
-			setPostText(response.data);
+			console.log("Post created successfully", response.data);
 		});
 	}
 
