@@ -1,9 +1,9 @@
 // API endpoints
-export const API_BASE_URL = "http://localhost:5174";
+export const API_BASE_URL = 'http://localhost:5174';
 export const ENDPOINTS = {
-  POSTS: "/posts",
-  USERS: "/users",
-  COMMENTS: "/comments"
+  POSTS: '/posts',
+  USERS: '/users',
+  COMMENTS: '/comments',
 };
 
 // UI constants
@@ -15,5 +15,5 @@ export const STATUS = {
   IDLE: 'idle',
   LOADING: 'loading',
   SUCCESS: 'success',
-  ERROR: 'error'
+  ERROR: 'error',
 };
