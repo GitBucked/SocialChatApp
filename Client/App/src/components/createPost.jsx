@@ -1,7 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
 import { API_BASE_URL, ENDPOINTS } from '../constants';
-import CreateBtn from './Navigator';
 import postSchema from '../validation/postSchema';
 
 function CreatePost() {
@@ -19,7 +18,6 @@ function CreatePost() {
 
   return (
     <div className="flex flex-col items-center min-h-screen pt-10">
-      <CreateBtn />
       <div className="flex flex-col w-[500px] h-auto p-5 border-[5px] border-blue-500 rounded-md">
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={postSchema}>
           <Form className="flex flex-col">
