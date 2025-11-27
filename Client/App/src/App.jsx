@@ -1,6 +1,7 @@
 import './App.css';
 import Home from './pages/home';
 import CreatePost from './pages/createPost';
+import Post from './pages/post';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create-post" element={<CreatePost />} />
-          <Route path="/post/:id" element={<CreatePost />} />
+          <Route path="/post/:id" element={<Post />} />
         </Routes>
       </Router>
     </div>
