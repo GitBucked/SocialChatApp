@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function post() {
-	return (
-		<div>post</div>
-	)
+  return <div>post</div>;
 }
 
-export default post
+export default post;
