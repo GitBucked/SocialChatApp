@@ -7,6 +7,12 @@ router.get("/", async (req, res) => {
   res.json(posts);
 });
 
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  const post = await Post.findByPk(id);
+  res.json(post);
+});
+
 router.post("/", async (req, res) => {
   const post = req.body;
   await Post.create(post);

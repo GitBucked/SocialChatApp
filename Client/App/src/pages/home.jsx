@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { API_BASE_URL, ENDPOINTS } from '../constants';
 import Post from '../components/post';
+
 function Home() {
   const [postText, setPostText] = useState([]);
 
@@ -13,7 +14,6 @@ function Home() {
 
   return (
     <div className="flex flex-col items-center min-h-screen">
-      {/* Create button shown at top of page */}
       {postText.map((value, key) => (
         <Post key={key} post={value} />
       ))}
