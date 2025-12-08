@@ -11,7 +11,10 @@ router.get("/:postId", async (req, res) => {
 router.post("/:postId", async (req, res) => {
   const commentBody = req.body.commentBody;
   const PostId = req.params.postId;
-  const newComment = await Comments.create({ commentBody: commentBody, PostId: PostId });
+  const newComment = await Comments.create({
+    commentBody: commentBody,
+    PostId: PostId,
+  });
   res.json(newComment);
 });
 
