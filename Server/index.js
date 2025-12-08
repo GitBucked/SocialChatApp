@@ -11,9 +11,13 @@ app.use(express.json());
 const db = require("./models");
 
 //Routers
-const postRouter = require("./Routes/Posts");
+const postRouter = require("./routes/posts");
 app.use(express.json());
 app.use("/posts", postRouter);
+
+const commentRouter = require("./routes/comment");
+app.use(express.json());
+app.use("/comments", commentRouter);
 
 db.sequelize.sync().then(() => {
   // API Endpoints would be defined here and where it starts listening

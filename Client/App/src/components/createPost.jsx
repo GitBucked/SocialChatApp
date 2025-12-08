@@ -1,9 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL, ENDPOINTS } from '../constants';
 import postSchema from '../validation/postSchema';
 
 function CreatePost() {
+  const navigate = useNavigate();
+
   const initialValues = {
     title: '',
     username: '',
@@ -12,7 +15,7 @@ function CreatePost() {
 
   const onSubmit = (data) => {
     axios.post(`${API_BASE_URL}${ENDPOINTS.POSTS}`, data).then(() => {
-      console.log('Post created successfully');
+      navigate('/');
     });
   };
 
