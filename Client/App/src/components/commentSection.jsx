@@ -14,7 +14,7 @@ function CommentSection({ postId }) {
 
   const addComment = () => {
     if (!newComment.trim()) return;
-    
+
     axios
       .post(`${API_BASE_URL}${ENDPOINTS.COMMENTS}/${postId}`, {
         commentBody: newComment,
@@ -45,10 +45,7 @@ function CommentSection({ postId }) {
 
       <div className="flex flex-col gap-4">
         {comments.map((comment, index) => (
-          <div
-            key={index}
-            className="w-full px-6 py-4 border border-gray-300 rounded-md bg-white"
-          >
+          <div key={index} className="w-full px-6 py-4 border border-gray-300 rounded-md bg-white">
             {comment.commentBody}
           </div>
         ))}
