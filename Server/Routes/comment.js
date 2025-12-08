@@ -11,8 +11,8 @@ router.get("/:postId", async (req, res) => {
 router.post("/:postId", async (req, res) => {
   const commentBody = req.body.commentBody;
   const PostId = req.params.postId;
-  await Comments.create({ commentBody: commentBody, PostId: PostId });
-  res.json({ message: "Comment created successfully!" });
+  const newComment = await Comments.create({ commentBody: commentBody, PostId: PostId });
+  res.json(newComment);
 });
 
 module.exports = router;

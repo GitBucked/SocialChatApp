@@ -3,19 +3,15 @@ import { useState, useEffect } from 'react';
 import { API_BASE_URL, ENDPOINTS } from '../constants';
 import { useParams } from 'react-router-dom';
 import Post from '../components/post';
+import CommentSection from '../components/commentSection';
 
 function post() {
   let { id } = useParams();
   const [postObject, setPostObject] = useState({});
-  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     axios.get(`${API_BASE_URL}${ENDPOINTS.POSTS}/${id}`).then((response) => {
       setPostObject(response.data);
-    });
-
-    axios.get(`${API_BASE_URL}${ENDPOINTS.COMMENTS}/${id}`).then((response) => {
-      setComments(response.data);
     });
   }, []);
 
@@ -25,10 +21,8 @@ function post() {
         <div className="flex items-center justify-center">
           {postObject.title && <Post post={postObject} isDetail={true} />}
         </div>
-        <div className="flex items-start justify-start w-[400px]">
-          {comments.map((comment, key) => {
-            return <div key={key}>{comment.commentBody}</div>;
-          })}
+        <div className="flex items-start justify-start pt-8">
+          <CommentSection postId={id} />
         </div>
       </div>
     </div>
