@@ -13,7 +13,7 @@ function post() {
     axios.get(`${API_BASE_URL}${ENDPOINTS.POSTS}/${id}`).then((response) => {
       setPostObject(response.data);
     });
-  }, [id]);
+  }, []);
 
   return (
     <div className="flex items-center justify-center min-h-screen -mt-20">
