@@ -19,6 +19,10 @@ const commentRouter = require("./routes/comment");
 app.use(express.json());
 app.use("/comments", commentRouter);
 
+const userRouter = require("./routes/users");
+app.use(express.json());
+app.use("/auth", userRouter);
+
 db.sequelize.sync().then(() => {
   // API Endpoints would be defined here and where it starts listening
   app.listen(port, () => {
