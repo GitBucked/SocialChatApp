@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { API_BASE_URL, ENDPOINTS } from '../constants';
-import Post from '../components/post';
+import { Post } from '../components';
+
 function Home() {
   const [postText, setPostText] = useState([]);
 

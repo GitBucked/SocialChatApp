@@ -1,4 +1,7 @@
 import home from './home';
-import createPost from './create-post';
+import createPost from './createPost';
+import post from './post';
+import login from './login';
+import registration from './registration';
 
-export { home, createPost };
+export { home, createPost, post, login, registration };

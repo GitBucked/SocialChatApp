@@ -1,21 +1,32 @@
 const express = require('express');
 const router = express.Router();
-const { Users } = require('../models');
+const { User } = require('../models');
 const bcrypt = require('bcrypt');
 
 router.post('/', async (req, res) => {
 	const { username, password } = req.body; 
-	bcrypt.hash(password, 10).then((hash) => {
-		Users.create({
-			username: username,
-			password: hash,
-		});
+	const hash = await bcrypt.hash(password, 10);
+	await User.create({
+		username: username,
+		password: hash,
 	});
 	res.json("User Created");
 });
 
-// router.get('/', async (req, res) => {
-// 		const users = await Users.findAll();
-// });
+router.post('/login', async (req, res) => {
+	const { username, password } = req.body;
+	const user = await User.findOne({ where: { username: username } });
+
+	if (!user) {
+		return res.status(400).json({ error: 'User not found' });
+	}
+
+	const isPasswordValid = await bcrypt.compare(password, user.password);
+	
+	if (!isPasswordValid) {
+		return res.status(400).json({ error: 'Invalid password' });
+	}
+	res.json("Login successful");
+});
 
 module.exports = router;

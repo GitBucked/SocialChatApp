@@ -1,8 +1,6 @@
 import './App.css';
-import Home from './pages/home';
-import CreatePost from './pages/createPost';
-import Post from './pages/post';
-import Navigator from './components/Navigator';
+import { home as Home, createPost as CreatePost, post as Post } from './pages';
+import { Navigator } from './components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {

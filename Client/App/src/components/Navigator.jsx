@@ -16,6 +16,12 @@ function CreateBtn() {
         >
           Create A Post
         </Link>
+				<Link to="/login" className="inline-block px-6 py-3 bg-gray-600 text-white text-lg font-medium rounded-md hover:bg-green-700 transition-colors">
+					Login
+				</Link>
+				<Link to="/register" className="inline-block px-6 py-3 bg-gray-600 text-white text-lg font-medium rounded-md hover:bg-yellow-700 transition-colors">
+					Register
+				</Link>
       </div>
     </div>
   );

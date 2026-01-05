@@ -2,8 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { API_BASE_URL, ENDPOINTS } from '../constants';
 import { useParams } from 'react-router-dom';
-import Post from '../components/post';
-import CommentSection from '../components/commentSection';
+import { Post, CommentSection } from '../components';
 
 function post() {
   let { id } = useParams();
